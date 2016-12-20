@@ -18,6 +18,13 @@ public String cacheRemark;
 public String cacheExt1;
 public String cacheExt2;
 public String cacheExt3;
+public String cacheData;
+public String getCacheData() {
+	return cacheData;
+}
+public void setCacheData(String cacheData) {
+	this.cacheData = cacheData;
+}
 public String getCacheRemark() {
 	return cacheRemark;
 }

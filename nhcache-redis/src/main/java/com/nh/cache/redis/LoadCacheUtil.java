@@ -51,7 +51,12 @@ public static Set<String> listCacheKeys(String sysId,String prefix){
 	if(prefix==null){
 		prefix="";
 	}
-	String findKey=NhCacheConst.CACHE_PREFIX+sysId+"_"+prefix+"*";
+	String findKey=null;
+	if(sysId==null || sysId.equals("")){
+		findKey=NhCacheConst.CACHE_PREFIX+prefix+"*";
+	}else{
+		findKey=NhCacheConst.CACHE_PREFIX+sysId+"_"+prefix+"*";
+	}
 	Set<String> keys=RedisUtil.getKeys(findKey);
 	return keys;
 }
