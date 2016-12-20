@@ -17,6 +17,11 @@ public static NhCacheObject queryCacheObject(String key){
 	nhCacheObject.setCacheVersion(nhCacheVersion);
 	nhCacheObject.setCahceKey(key);
 	nhCacheObject.cacheMap=cacheMap;
+	
+	String nhCacheType=cacheMap.get(NhCacheConst.CACHE_TYPE);
+	nhCacheObject.setCahceKey(nhCacheType);
+	nhCacheObject.setCacheSource("redis");
+	
 	return nhCacheObject;
 }
 
