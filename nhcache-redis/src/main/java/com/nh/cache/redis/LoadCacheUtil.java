@@ -38,7 +38,7 @@ public static NhCacheObject queryCacheObject(String key){
 	nhCacheObject.cacheMap=cacheMap;
 	
 	String nhCacheType=cacheMap.get(NhCacheConst.CACHE_TYPE);
-	nhCacheObject.setCahceKey(nhCacheType);
+	nhCacheObject.setCacheType(nhCacheType);
 	String nhCacheData=cacheMap.get(NhCacheConst.CACHE_DATA);
 	nhCacheObject.setCacheData(nhCacheData);
 	
