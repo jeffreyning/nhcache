@@ -1,5 +1,6 @@
 package com.nh.cache.redis;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -9,6 +10,24 @@ import com.nh.cache.base.NhCacheObject;
 
 public class LoadCacheUtil {
 
+public static void saveCacheObject(NhCacheObject nhCacheObject){
+	String key=nhCacheObject.getCahceKey();
+	String realKey=NhCacheConst.CACHE_PREFIX+key;
+	String cacheVersion=nhCacheObject.getCacheVersion();
+	String cacheType=nhCacheObject.getCacheType();
+	String cacheData=nhCacheObject.getCacheData();
+	Map cacheMap=nhCacheObject.getCacheMap();
+	if(cacheMap==null){
+		cacheMap=new HashMap();
+	}
+	cacheMap.put(NhCacheConst.CACHE_VERSION, cacheVersion);
+	cacheMap.put(NhCacheConst.CACHE_DATA, cacheData);
+	cacheMap.put(NhCacheConst.CACHE_TYPE,cacheType);
+	cacheMap.put(NhCacheConst.CACHE_KEY, key);
+	RedisUtil.hmset(realKey, cacheMap);
+}
+	
+	
 public static NhCacheObject queryCacheObject(String key){
 	String realKey=NhCacheConst.CACHE_PREFIX+key;
 	Map<String,String> cacheMap=RedisUtil.hgetAll(realKey);
@@ -20,6 +39,9 @@ public static NhCacheObject queryCacheObject(String key){
 	
 	String nhCacheType=cacheMap.get(NhCacheConst.CACHE_TYPE);
 	nhCacheObject.setCahceKey(nhCacheType);
+	String nhCacheData=cacheMap.get(NhCacheConst.CACHE_DATA);
+	nhCacheObject.setCacheData(nhCacheData);
+	
 	nhCacheObject.setCacheSource("redis");
 	
 	return nhCacheObject;

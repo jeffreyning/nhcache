@@ -875,5 +875,17 @@ public class RedisUtil {
 		}
 		return result;
 	}
+	
+	public static void hmset(String key, Map<String,String> paramMap) {
+		Jedis j = null;
+		try {
+			j = RedisPool.getJedis();
+			j.hmset(key, paramMap);
+		} catch (Exception e) {
+			logger.error(e.getMessage(), e);
+		} finally {
+			closeConn(j);
+		}
+	}
 }
 
