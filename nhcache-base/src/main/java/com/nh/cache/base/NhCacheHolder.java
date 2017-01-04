@@ -1,6 +1,7 @@
 package com.nh.cache.base;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -31,5 +32,12 @@ public class NhCacheHolder {
 	public static NhCacheObject getCacheObject(String key) {
 		NhCacheObject nhCacheObject = (NhCacheObject) cacheHolder.get(key);
 		return nhCacheObject;
+	}
+	
+	public void setCacheObjectList(List<NhCacheObject> cacheObjList) {
+		for(NhCacheObject cacheObj:cacheObjList){
+			String key = cacheObj.getCahceKey();
+			cacheHolder.put(key, cacheObj);
+		}
 	}
 }
