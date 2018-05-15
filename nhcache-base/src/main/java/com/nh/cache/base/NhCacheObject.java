@@ -9,7 +9,7 @@ import java.util.Map;
  *
  */
 public class NhCacheObject {
-public String cahceKey;
+public String cacheKey;
 public String cacheVersion;
 public String cacheTime;
 public String cacheType;
@@ -19,6 +19,8 @@ public String cacheExt1;
 public String cacheExt2;
 public String cacheExt3;
 public String cacheData;
+public Map cacheMap;
+
 public String getCacheData() {
 	return cacheData;
 }
@@ -49,7 +51,7 @@ public String getCacheExt3() {
 public void setCacheExt3(String cacheExt3) {
 	this.cacheExt3 = cacheExt3;
 }
-public Map cacheMap;
+
 public String getCacheType() {
 	return cacheType;
 }
@@ -62,11 +64,11 @@ public String getCacheSource() {
 public void setCacheSource(String cacheSource) {
 	this.cacheSource = cacheSource;
 }
-public String getCahceKey() {
-	return cahceKey;
+public String getCacheKey() {
+	return cacheKey;
 }
-public void setCahceKey(String cahceKey) {
-	this.cahceKey = cahceKey;
+public void setCacheKey(String cahceKey) {
+	this.cacheKey = cahceKey;
 }
 public String getCacheVersion() {
 	return cacheVersion;

@@ -2,13 +2,13 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.jeffreyning</groupId>
   <artifactId>nhcache-db</artifactId>
-  <version>0.0.1-RELEASE</version>
+  <version>0.0.2-RELEASE</version>
   
    <dependencies>
   <dependency>
   <groupId>com.github.jeffreyning</groupId>
   <artifactId>nhcache-base</artifactId>
-  <version>0.0.1-RELEASE</version>
+  <version>0.0.2-RELEASE</version>
   </dependency>
   </dependencies>
   
@@ -17,7 +17,7 @@
    <description>nhcache</description>
    <url>https://github.com/jeffreyning/nhcache</url>
     <properties>
-        <project.release.version>0.0.1-RELEASE</project.release.version>
+        <project.release.version>0.0.2-RELEASE</project.release.version>
     </properties>
 
 

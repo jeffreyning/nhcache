@@ -1,5 +1,10 @@
 package com.nh.cache.db;
 
+/**
+ * 
+ * @author ninghao
+ * 
+ */
 public class CacheSqlHolder {
 public String tableName="";
 public String getTableName() {
