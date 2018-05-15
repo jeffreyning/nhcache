@@ -2,6 +2,7 @@ package com.nh.cache.db;
 
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -77,9 +78,17 @@ public class LoadCacheUtil4Db {
 		String findKey=null;
 		CacheSqlHolder cacheSqlHolder=sqlHolderMap.get(tableName);
 		String listCacheKeysSql=cacheSqlHolder.getListCacheKeysSql();
-		Object[] params=new Object[]{prefix};
+		Object[] params=null;
+		if(prefix==null && !"".equals(prefix)){
+			params=new Object[]{prefix};
+		}
 		
-		List<Map<String,Object>> retList= jdbcTemplate.queryForList(listCacheKeysSql,params);
+		List<Map<String,Object>> retList= new ArrayList();
+		if(params!=null){
+			retList=jdbcTemplate.queryForList(listCacheKeysSql,params);
+		}else{
+			retList=jdbcTemplate.queryForList(listCacheKeysSql);
+		}
 		Set<String> keys=new HashSet<String>();
 		for(Map<String,Object> rowMap:retList){
 			String keyName=(String) rowMap.get("key_name");
